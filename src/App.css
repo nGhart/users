@@ -1,0 +1,37 @@
+body {
+  background-color: aliceblue;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.main {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.signupForm {
+  color: aliceblue;
+}
+h1 {
+  color: #000;
+}
+label {
+  color: black;
+}
+input {
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+button {
+  margin-top: 10px;
+  background-color: #3574e1;
+  color: #fff;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.users {
+  text-align: center;
+}
+.box {
+  margin: 5px;
+  width: 300px;
+}
