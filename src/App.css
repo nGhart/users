@@ -7,29 +7,35 @@ body {
   display: flex;
   align-items: center;
 }
-.signupForm {
-  color: aliceblue;
-}
-h1 {
-  color: #000;
-}
-label {
-  color: black;
-}
 input {
   border-radius: 5px;
   margin-bottom: 5px;
 }
-button {
+.button {
   margin-top: 10px;
-  background-color: #3574e1;
+  background-color: #1c3560;
   color: #fff;
   font-size: 20px;
-  padding: 5px;
+  padding: 10px;
   border-radius: 5px;
+  border: none;
 }
 .users {
   text-align: center;
+}
+.userButton {
+  margin-top: 10px;
+  background-color: #213f72;
+  color: #fff;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 100px;
+  }
+.userModification {
+  display: flex;
+  justify-content:space-evenly;
 }
 .box {
   margin: 5px;
