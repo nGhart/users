@@ -61,6 +61,10 @@ class App extends Component {
     console.log(this.state.persons);
   }
 
+  // handleDeleteUser = (id)=> {
+  //   const retainedUsers = items.filter()
+  // }
+
   render() {
     return (
       <Container
