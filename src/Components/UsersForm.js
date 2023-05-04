@@ -63,15 +63,15 @@ export default class UserForm
                             onChange={this.handleChange}
                         />
                     </div>
-                    <button>Submit</button>
+                    <button className='button' >Submit</button>
                 </form>
                 {this.state.persons.map((item, index) => {
                     return (
                         <div 
                         key={index}>
-                            <p>Name: {item.name}</p>
+                            {/* <p>Name: {item.name}</p>
                             <p>Email: {item.email}</p>
-                            <p>Gen: {item.gen}</p>
+                            <p>Gen: {item.gen}</p> */}
                         </div>
                     )
                 })}
