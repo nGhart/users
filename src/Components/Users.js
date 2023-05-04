@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 
 class Users extends Component {
     render() {
@@ -21,6 +22,10 @@ class Users extends Component {
                                     <Card.Text>
                                         Gen: {item.gen}
                                     </Card.Text>
+                                    <div className='userModification'>
+                                    <Button variant="primary" className='userButton'>Edit</Button>
+                                    <Button variant="primary" className='userButton'>Delete</Button>
+                                    </div>
                                 </Card.Body>
                             </Card>
                         </Col>
