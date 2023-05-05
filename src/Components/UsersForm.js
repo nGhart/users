@@ -31,8 +31,8 @@ export default class UserForm
     };
     render() {
         return (
-            <div 
-            className='signupForm'>
+            <div
+                className='signupForm'>
                 <h1>Register</h1>
                 <form
                     onSubmit={this.handleSubmit}>
@@ -48,7 +48,7 @@ export default class UserForm
                     <div>
                         <label>Email: </label>
                         <input
-                            type="text"
+                            type="email"
                             name="email"
                             value={this.state.email}
                             onChange={this.handleChange}
@@ -67,11 +67,8 @@ export default class UserForm
                 </form>
                 {this.state.persons.map((item, index) => {
                     return (
-                        <div 
-                        key={index}>
-                            {/* <p>Name: {item.name}</p>
-                            <p>Email: {item.email}</p>
-                            <p>Gen: {item.gen}</p> */}
+                        <div
+                            key={index}>
                         </div>
                     )
                 })}
