@@ -6,13 +6,19 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
 class Users extends Component {
+    deleteUser = (e) => {
+        e.preventDefault();
+        this.props.deleteUser(this.props.items.id);
+    }
     render() {
         return (
             <Container>
                 <Row>
                     <h1 className='users'>Users</h1>
-                    {this.props.items.map((item, index) => (
-                        <Col xs={4} key={index} className='box'>
+                    {this.props.items.map((item) => (
+
+                        <Col xs={4} key={item.id} deleteUser={this.props.deleteUser} className='box'>
+
                             <Card style={{ width: '18rem' }}>
                                 <Card.Body>
                                     <Card.Title>Name: {item.name}</Card.Title>
@@ -23,8 +29,8 @@ class Users extends Component {
                                         Gen: {item.gen}
                                     </Card.Text>
                                     <div className='userModification'>
-                                    <Button variant="primary" className='userButton'>Edit</Button>
-                                    <Button variant="primary" className='userButton'>Delete</Button>
+                                        <Button variant="primary" className='userButton'>Edit</Button>
+                                        <Button variant="primary" className='userButton' onClick={() => this.props.deleteUser(item)}>Delete</Button>
                                     </div>
                                 </Card.Body>
                             </Card>
