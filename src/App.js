@@ -14,17 +14,20 @@ class App extends Component {
         {
           name: 'Bernard',
           email: 'bernard@domainname.com',
-          gen: 24
+          gen: 24,
+          id: 're4er56erf'
         },
         {
           name: 'Emmanuel',
           email: 'emmanuel@domainname.com',
-          gen: 24
+          gen: 24,
+          id: 'ythhk9087'
         },
         {
           name: 'Faisal',
           email: 'faisal@domainname.com',
-          gen: 24
+          gen: 24,
+          id: 'yti7i90ujj'
         },
         {
           name: 'Godwin',
@@ -55,15 +58,19 @@ class App extends Component {
     };
   }
   handleAddUser = (addNewUser) => {
+    addNewUser.id = Math.floor(Math.random() * 10000)
     this.setState({
       items: [...this.state.items, addNewUser],
     });
     console.log(this.state.persons);
   }
 
-  // handleDeleteUser = (id)=> {
-  //   const retainedUsers = items.filter()
-  // }
+  deleteUser = id => {
+    const remainingUsers = this.state.items.filter((items) => items !== id)
+    this.setState({
+      items: remainingUsers
+    })
+  }
 
   render() {
     return (
@@ -75,7 +82,7 @@ class App extends Component {
             <UserForm newUser={this.handleAddUser} />
           </Col>
           <Col>
-            <Users items={this.state.items} />
+            <Users items={this.state.items} deleteUser={this.deleteUser} />
           </Col>
         </Row>
       </Container>
