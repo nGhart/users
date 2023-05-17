@@ -1,41 +1,33 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-export default class UserForm
-    extends Component {
+class UsersForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            persons: [
-                {
-                    name: "",
-                    email: "",
-                    gen: ""
-                },
-            ]
+            name: "",
+            email: "",
+            gen: ""
         }
     }
-
     handleChange = (e) => {
         e.preventDefault();
-        this.setState({ [e.target.name]: e.target.value });
-    };
+        this.setState({ [e.target.name]: e.target.value })
+    }
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.newUser(this.state);
+        this.props.addUser(this.state);
         this.setState({
             name: "",
             email: "",
-            gen: "",
-        });
-        console.log(this.state.persons);
-    };
+            gen: ""
+        })
+    }
     render() {
         return (
             <div
                 className='signupForm'>
                 <h1>Register</h1>
-                <form
-                    onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit}>
                     <div>
                         <label>Name: </label>
                         <input
@@ -65,16 +57,10 @@ export default class UserForm
                     </div>
                     <button className='button' >Submit</button>
                 </form>
-                {this.state.persons.map((item, index) => {
-                    return (
-                        <div
-                            key={index}>
-                        </div>
-                    )
-                })}
+
             </div>
         )
     }
 }
 
-
+export default UsersForm
