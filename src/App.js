@@ -1,93 +1,63 @@
-import React, { Component } from 'react';
-import Users from './Components/Users';
-import UserForm from './Components/UsersForm';
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import './App.css';
+import Users from './Components/Users';
+import UsersForm from './Components/UsersForm';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: [
-        {
-          name: 'Bernard',
-          email: 'bernard@domainname.com',
-          gen: 24,
-          id: 're4er56erf'
-        },
-        {
-          name: 'Emmanuel',
-          email: 'emmanuel@domainname.com',
-          gen: 24,
-          id: 'ythhk9087'
-        },
-        {
-          name: 'Faisal',
-          email: 'faisal@domainname.com',
-          gen: 24,
-          id: 'yti7i90ujj'
-        },
-        {
-          name: 'Godwin',
-          email: 'godwin@domainname.com',
-          gen: 24
-        },
-        {
-          name: 'Jeffrey',
-          email: 'jeffrey@domainname.com',
-          gen: 24
-        },
-        {
-          name: 'Mandelson',
-          email: 'mandelson@domainname.com',
-          gen: 24
-        },
-        {
-          name: 'Sampson',
-          email: 'sampson@domainname.com',
-          gen: 24
-        },
-        {
-          name: 'Ugochukwu',
-          email: 'ugochukwu@domainname.com',
-          gen: 24
-        },
-      ]
-    };
-  }
-  handleAddUser = (addNewUser) => {
-    addNewUser.id = Math.floor(Math.random() * 10000)
-    this.setState({
-      items: [...this.state.items, addNewUser],
-    });
-    console.log(this.state.persons);
-  }
+const App = () => {
+  const [users, setUsers] = useState([
+    {
+      name: 'Bernard',
+      email: 'bernard@domainname.com',
+      gen: 24,
+      id: 're4er56erf'
+    },
+    {
+      name: 'Emmanuel',
+      email: 'emmanuel@domainname.com',
+      gen: 24,
+      id: 'ythhk9087'
+    },
+    {
+      name: 'Faisal',
+      email: 'faisal@domainname.com',
+      gen: 24,
+      id: 'yti7i90ujj'
+    },
+  ]);
 
-  deleteUser = id => {
-    const remainingUsers = this.state.items.filter((items) => items !== id)
-    this.setState({
-      items: remainingUsers
-    })
-  }
+  const addNewUser = (user) => {
+    user.id = Math.floor(Math.random() * 10000);
+    setUsers([...users, user]);
+  };
 
-  render() {
-    return (
-      <Container
-        className='main'>
+  const deleteUser = (id) => {
+    const remainingUsers = users.filter((user) => user.id !== id);
+    setUsers(remainingUsers);
+  };
+
+  const editUser = (id, newInfo) => {
+    setUsers(users.map((user) => (user.id === id ? newInfo : user)));
+  };
+
+  return (
+    <>
+      <Container>
         <Row>
-          <Col
-            xs={2}>
-            <UserForm newUser={this.handleAddUser} />
+          <Col xs={12} sm={2}>
+            <UsersForm addUser={addNewUser} />
           </Col>
-          <Col>
-            <Users items={this.state.items} deleteUser={this.deleteUser} />
+          <Col xs={12} sm={10}>
+            <Users usersData={users} deleteUser={deleteUser} editUser={editUser} />
           </Col>
         </Row>
       </Container>
-    );
-  }
-}
+    </>
+  );
+};
 
 export default App;
+
+
